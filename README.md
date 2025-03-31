@@ -22,3 +22,7 @@
   <img src="https://github.com/user-attachments/assets/c814dd7f-d8e0-49fc-8af9-35e2a96ba840"/>
   <img src="https://github.com/user-attachments/assets/4f6776a0-f87b-4339-b4ff-f17de9221153"/>
 </ul>
+
+<h1>Finding the Longest Sequence in a List</h1>
+<p>In this problem, the longest sequence in a list was needed. For example, in a list containing an input [100, 4, 200, 1, 3, 2], the expected output is [1, 2, 3, 4]. A while loop and for loop were used to achieve the desired result</p>
+<img src="https://github.com/user-attachments/assets/71691394-8445-4a24-ab71-0d6e0c5382ad"/>
