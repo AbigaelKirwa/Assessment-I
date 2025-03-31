@@ -70,4 +70,48 @@ async function delete_book(req, res){
     }
 }
 
-export {post_book, read_all_books, delete_book}
+async function update_book(req, res){
+    try{
+        // fetch id from URL
+        const bookId = req.params.id
+
+        // specify what is required in the body
+        const {title, author, year} = req.body
+
+        // specify the updated doc
+        const doc = {
+            title:title,
+            author:author,
+            year:parseInt(year)
+        }
+
+        // set check to ensure one is specified 
+        if(!title & !author & !year){
+            res.status(500).json({message:"Either the title, author, or year is required"})
+        }
+        // create update object dynamically
+        const updateFields = {};
+        if (title) updateFields.title = title
+        if (author) updateFields.author = author
+        if (year) updateFields.year = year
+
+        const update_result = await collection.updateOne(
+            {_id:new ObjectId(bookId)}, 
+            {$set:updateFields}
+        );
+
+        //check if document was updated
+        if (update_result.matchedCount === 0){
+            return res.status(400).json({message:"Book not found"})
+        }
+
+        res.status(201).json("updated book successfully")
+
+    }catch(error){
+        // catch and log any error
+        console.log("Error reading documents", error)
+        res.status(500).json({error:"Internal Server Error"})
+    }
+}
+
+export {post_book, read_all_books, delete_book, update_book}
