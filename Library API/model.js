@@ -67,6 +67,32 @@ async function read_books_by_year(req, res){
     }
 }
 
+// search for a book by author
+async function find_book_by_author(req, res){
+    try{
+        // fetch the query from the URI
+        const {author} = req.body
+
+        // set restrictions if author is not set
+        if (!author) {
+            return res.status(400).json({ error: "Author is required" });
+        }
+
+        // Case-insensitive search for partial matches
+        const query = { author: { $regex: author, $options: "i" } };
+        
+        // get results
+        const results = await collection.find(query).toArray()
+        res.status(201).json(results)
+
+
+    }catch(error){
+        // catch and log any error
+        console.log("Error reading documents", error)
+        res.status(500).json({error:"Internal Server Error"})
+    }
+}
+
 // delete a book
 async function delete_book(req, res){
     try{
@@ -135,4 +161,4 @@ async function update_book(req, res){
     }
 }
 
-export {post_book, read_all_books, delete_book, update_book, read_books_by_year}
+export {post_book, read_all_books, delete_book, update_book, read_books_by_year, find_book_by_author}
