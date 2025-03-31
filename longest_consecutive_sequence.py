@@ -1,3 +1,16 @@
+"""
+Q1: Longest Consecutive Sequence
+Write a function that takes an array of integers and returns the longest sequence of consecutive
+numbers in the array.
+
+Example:
+Input:
+[100, 4, 200, 1, 3, 2]
+
+Output:
+[1, 2, 3, 4]
+"""
+
 # return the longest sequence of numbers in an array
 
 def find_longest_sequence(arr):
