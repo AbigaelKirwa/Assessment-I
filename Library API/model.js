@@ -47,6 +47,26 @@ async function read_all_books(req, res){
     }
 }
 
+// fetch books sorted by year
+async function read_books_by_year(req, res){
+    try{
+        // define an empty query document
+        const query = {}
+        // sort in ascending order by year
+        const sort = {year: 1}
+        const result = await collection.find(query).sort(sort).toArray()
+        res.status(201).json(result)
+        // for await (const doc of cursor){
+        //     console.dir(doc)
+        // }
+        
+    }catch(error){
+        // catch and log any error
+        console.log("Error reading documents", error)
+        res.status(500).json({error:"Internal Server Error"})
+    }
+}
+
 // delete a book
 async function delete_book(req, res){
     try{
@@ -70,6 +90,7 @@ async function delete_book(req, res){
     }
 }
 
+// update a book
 async function update_book(req, res){
     try{
         // fetch id from URL
@@ -114,4 +135,4 @@ async function update_book(req, res){
     }
 }
 
-export {post_book, read_all_books, delete_book, update_book}
+export {post_book, read_all_books, delete_book, update_book, read_books_by_year}

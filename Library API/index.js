@@ -1,6 +1,6 @@
 import express from 'express'
 import { connectDB} from './db.js'
-import { post_book, read_all_books, delete_book, update_book } from './model.js'
+import { post_book, read_all_books, delete_book, update_book, read_books_by_year } from './model.js'
 
 // initizlizing express instance with constant app
 const app = express()
@@ -35,6 +35,11 @@ app.delete('/:id', async (req, res)=>{
 // function to update a book
 app.put('/:id', async (req, res)=>{
     update_book(req, res)
+})
+
+// function to sort books by year
+app.get('/year-sort', async(req, res)=>{
+    read_books_by_year(req, res)
 })
 
 // check to see if the app is listening on the port correctly
