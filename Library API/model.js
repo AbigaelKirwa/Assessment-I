@@ -1,13 +1,13 @@
 import { client } from './db.js'
 
+// connect to libraryData database
+const clientDB = client.db("libraryData");
+// connect to the correct cluster
+const collection = clientDB.collection("Books")
+
 // post method
 async function post(req,res){
     try{
-        // connect to libraryData database
-        const clientDB = client.db("libraryData");
-        // connect to the correct cluster
-        const collection = clientDB.collection("Books")
-
         // extract data from the request body
         const {title, author, year} = req.body
 
@@ -31,4 +31,15 @@ async function post(req,res){
     }
 }
 
-export {post}
+// fetch all books
+async function read_all(req, res){
+    try{
+        const result = await collection.find().toArray();
+        res.status(201).json(result)
+    }catch(error){
+        console.log("Error reading documents", error)
+        res.status(500).json({error:"Internal Server Error"})
+    }
+}
+
+export {post, read_all}
