@@ -26,3 +26,8 @@
 <h1>Finding the Longest Sequence in a List</h1>
 <p>In this problem, the longest sequence in a list was needed. For example, in a list containing an input [100, 4, 200, 1, 3, 2], the expected output is [1, 2, 3, 4]. A while loop and for loop were used to achieve the desired result</p>
 <img src="https://github.com/user-attachments/assets/71691394-8445-4a24-ab71-0d6e0c5382ad"/>
+
+<h1>Fibonacci Numbers</h1>
+<p>This optimizes the way fibonacci numbers are calculated by removing the recurring function which makes it less efficient when calculating fibonnacci numbers of high values</p>
+<img src="https://github.com/user-attachments/assets/d9d0895e-b921-4dff-a15a-aae401678289"/>
+
