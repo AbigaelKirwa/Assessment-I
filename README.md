@@ -16,11 +16,11 @@
   <img src="https://github.com/user-attachments/assets/ac9ebecb-2dd1-4d05-a31e-016e91c0e686"/>
   <li><b>5. Allow searching for books by author.</b></li></br>
   <p>This API route allows the user to search for a book based on a JSON object containing an authors name. It uses regex hence part or the full name of the author can be used</p>
-  <img src="https://github.com/user-attachments/assets/7c853ea1-e174-431e-a129-654ff0c92909"/>
-  <li><b>6. Return books sorted by year (ascending).</b></li></br>
-  <p>This API route allows the user to list all books based on the year in an ascending order</p>
   <img src="https://github.com/user-attachments/assets/c814dd7f-d8e0-49fc-8af9-35e2a96ba840"/>
   <img src="https://github.com/user-attachments/assets/4f6776a0-f87b-4339-b4ff-f17de9221153"/>
+  <li><b>6. Return books sorted by year (ascending).</b></li></br>
+  <p>This API route allows the user to list all books based on the year in an ascending order</p>
+  <img src="https://github.com/user-attachments/assets/7c853ea1-e174-431e-a129-654ff0c92909"/>
 </ul>
 
 <h1>Finding the Longest Sequence in a List</h1>
